@@ -6,4 +6,4 @@ module.exports = {
     API_VERSION,
     IP_SERVER,
     PORT_DB
-} 
+}
