@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Web personal tipo blog backend")
+    res.send("Habilitando Cors")
 })
 
 mongoose.connect(
