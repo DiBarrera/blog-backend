@@ -4,11 +4,7 @@
   "description": "Backend para web personal tipo blog",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "dev": "react-scripts-start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,5 +15,21 @@
   "bugs": {
     "url": "https://github.com/DiBarrera/blog-backend/issues"
   },
-  "homepage": "https://github.com/DiBarrera/blog-backend#readme"
+  "homepage": "https://github.com/DiBarrera/blog-backend#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.3",
+    "multiparty": "^4.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
