@@ -85,16 +85,19 @@ function signIn(req, res) {
             } else {
                 console.log("Continuar 1")
                 console.log("Comparando contraseña con hash")
-                console.log(userStored)
+                console.log(`Las contraseñas son iguales ---> ${password} === ${userStored.password}`)
                 bcrypt.compare(password, userStored.password, (err, check) => {
                     if(err) {
                         console.log(`Este es el error 3 ---> ${err}`)
                         res.status(500).send({message: "Error del servidor."})
+                    } else if(!check) {
+                        console.log(`Este es el error 4 ---> ${password} !=== ${userStored.password}`)
+                        res.status(404).send({message: "La contraseña es incorrecta"})
                     } else {
                         console.log("Continuar 2")
                         if(!userStored.active) {
-                            console.log(`Este es el error 4 ---> ${!userStored.active}`)
-                            res.status(200).send({coe: 200, message: "El usuario no se ha activado"})
+                            console.log(`Este es el error 5 ---> ${!userStored.active}`)
+                            res.status(200).send({code: 200, message: "El usuario no se ha activado"})
                         } else {
                             console.log("Continuar 3")
                             console.log("Creadno accessToken y refreshToken")
