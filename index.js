@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Creado Endpoint para refrescar el AccessToken, creada la ruta /refresh-access-token para prueba de Token regenerado en Postman, condiciones para verificar expiración de Token")
+    res.send("Middlewares para bloquear url a usuarios no ingresados o logeados")
 })
 
 mongoose.connect(

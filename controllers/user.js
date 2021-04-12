@@ -114,7 +114,19 @@ function signIn(req, res) {
     }) 
 }
 
+function getUsers(req, res) {
+    console.log("Get Users tres puntos")
+    User.find().then(users => {
+        if(!users) {
+            res.status(404).send({message: "No se ha encontrado ningun usuario"})
+        } else {
+            res.status(200).send({ users })
+        }
+    })
+}
+
 module.exports = {
     signUp,
-    signIn
+    signIn,
+    getUsers
 }
