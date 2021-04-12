@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Creada la estructura basica de pagina SignIn")
+    res.send("Método para pasar mayusculas a minúsculas en correo al registrarse")
 })
 
 mongoose.connect(
