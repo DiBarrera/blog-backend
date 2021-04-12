@@ -7,6 +7,7 @@ const { API_VERSION } = require("./config");
 
 // Load Routings
 const userRoutes = require("./routers/user");
+const authRouters = require("./routers/auth");
 
 app.use(cors({
           credentials: true,
@@ -21,5 +22,6 @@ app.use(bodyParser.json());
 
 // Router Basic
 app.use(`/api/${API_VERSION}`, userRoutes);
+app.use(`/api/${API_VERSION}`, authRouters);
 
 module.exports = app;
