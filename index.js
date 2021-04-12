@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Funciones de createAccessToken y createRefreshToken en /services/jwt para la creación de los Tokens")
+    res.send("Ruta post de /sign-in, Función de signIn en /controllers/user, condiciones para User.findOne, envío a usuario de accessToken y refreshToken, pruebas fallidas para generar los Tokens")
 })
 
 mongoose.connect(

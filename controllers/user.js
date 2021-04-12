@@ -1,8 +1,10 @@
 const bcrypt = require("bcrypt-nodejs");
 // const bcrypt = require("bcrypt");   // <--- ESTE SE COMENTA PORQUE SU SYNTAX NO LA HE APRENDIDO A USAR
 const User = require("../models/user");
+const jwt = require("../services/jwt");
 
 function signUp(req, res) {
+
     console.log("Endpoint de signUp ejecutado")
 
     const user = new User()
@@ -61,6 +63,55 @@ function signUp(req, res) {
     }
 }
 
+function signIn(req, res) {
+
+    console.log("Login correcto...")
+
+    const params = req.body
+
+    console.log(params)
+
+    const email = params.email.toLowerCase()
+    const password = params.password
+
+    User.findOne({ email }, (err, userStored) => {
+        if(err) {
+            console.log(`Este es el error 1 ---> ${err}`)
+            res.status(500).send({message: "Error del servidor."})
+        } else {
+            if(!userStored) {
+                console.log(`Este es el error 2 ---> ${!userStored}`)
+                res.status(400).send({message: "Usuario no encontrado"})
+            } else {
+                console.log("Continuar 1")
+                console.log("Comparando contraseña con hash")
+                console.log(userStored)
+                bcrypt.compare(password, userStored.password, (err, check) => {
+                    if(err) {
+                        console.log(`Este es el error 3 ---> ${err}`)
+                        res.status(500).send({message: "Error del servidor."})
+                    } else {
+                        console.log("Continuar 2")
+                        if(!userStored.active) {
+                            console.log(`Este es el error 4 ---> ${!userStored.active}`)
+                            res.status(200).send({coe: 200, message: "El usuario no se ha activado"})
+                        } else {
+                            console.log("Continuar 3")
+                            console.log("Creadno accessToken y refreshToken")
+                            console.log(userStored)
+                            res.status(200).send({
+                                accessToken: jwt.createAccessToken(userStored),
+                                refreshToken: jwt.createRefreshToken(userStored)
+                            })
+                        }
+                    }
+                })
+            }
+        }
+    }) 
+}
+
 module.exports = {
-    signUp
+    signUp,
+    signIn
 }
