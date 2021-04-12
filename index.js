@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Método para pasar mayusculas a minúsculas en correo al registrarse")
+    res.send("Funciones de createAccessToken y createRefreshToken en /services/jwt para la creación de los Tokens")
 })
 
 mongoose.connect(
