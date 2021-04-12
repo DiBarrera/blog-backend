@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Configuracion para registrar nuevos usuarios, condicionales, poblado de base de datos exitoso")
+    res.send("Creada la estructura basica de pagina SignIn")
 })
 
 mongoose.connect(
