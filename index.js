@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Endpoint para llamar usuarios activos o inactivos y visualizarlos en la parte del cliente a nivel de localhost como prueba de su funcionalidad")
+    res.send("Agregada la propiedad Avatar al modelo de datos de Usuarios")
 })
 
 mongoose.connect(

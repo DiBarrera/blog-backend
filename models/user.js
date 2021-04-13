@@ -28,6 +28,10 @@ const UserSchema = Schema({
     registro: {
       type: Date,
       default: Date.now()
+    },
+    imgProfile: {
+      type: String,
+      default:"./img"
     }
 })
 
