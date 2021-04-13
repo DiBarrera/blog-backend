@@ -125,8 +125,28 @@ function getUsers(req, res) {
     })
 }
 
+function getUsersActive(req, res) {
+
+    const query = req.query
+
+    console.log(`Este es el req solo ---> ${req}`)
+    console.log(req)
+    console.log(`Este es el req.body ---> ${req.body}`)
+    console.log(req.body)
+
+    console.log("Get Users tres puntos")
+    User.find({active: query.active}).then(users => {
+        if(!users) {
+            res.status(404).send({message: "No se ha encontrado ningun usuario"})
+        } else {
+            res.status(200).send({ users })
+        }
+    })
+}
+
 module.exports = {
     signUp,
     signIn,
-    getUsers
+    getUsers,
+    getUsersActive
 }
