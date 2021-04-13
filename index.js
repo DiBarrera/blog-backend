@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Middlewares para bloquear url a usuarios no ingresados o logeados")
+    res.send("Headers reforzados en el servidor")
 })
 
 mongoose.connect(
