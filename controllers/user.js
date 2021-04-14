@@ -203,10 +203,32 @@ function uploadAvatar(req, res) {
     })
 }
 
+function getAvatar(req, res) {
+
+    console.log("Get Avatar . . .")
+
+    const avatarName = req.params.avatarName
+
+    console.log(avatarName)
+
+    const filePath = "./uploads/avatar/" + avatarName
+
+    console.log(filePath)
+
+    fs.exists(filePath, exists => {
+        if(!exists) {
+            res.status(404).send ({message: "El avatar que buscas no existe"})
+        } else {
+            res.sendFile(path.resolve(filePath))
+        }
+    })
+}
+
 module.exports = {
     signUp,
     signIn,
     getUsers,
     getUsersActive,
-    uploadAvatar
+    uploadAvatar,
+    getAvatar
 }
