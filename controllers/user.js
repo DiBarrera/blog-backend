@@ -224,11 +224,41 @@ function getAvatar(req, res) {
     })
 }
 
+function updateUser(req, res) {
+
+    console.log("Update user . . .")
+
+    const userData = req.body
+
+    console.log(userData)
+    console.log(req.body)
+
+    const params = req.params
+
+    console.log(params)
+    console.log(req.params)
+
+    User.findByIdAndUpdate({_id: params.id}, userData, (err, userUpdate) => {
+        if(err) {
+            console.log(err)
+            res.status(500).send({message: "Error del servidor"})
+        } else {
+            if(!userUpdate) {
+                res.status(400).send({message: "No se ha encontrado ningun usuario"})
+            } else {
+                console.log("Continuar 1")
+                res.status(200).send({message: "Usuario actualizado correctamente"})
+            }
+        }
+    })
+}
+
 module.exports = {
     signUp,
     signIn,
     getUsers,
     getUsersActive,
     uploadAvatar,
-    getAvatar
+    getAvatar,
+    updateUser
 }
