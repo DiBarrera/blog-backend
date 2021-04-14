@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("cloudinary, multer y multer-storage-cloudinary Instalados")
+    res.send("Logica construida para subir imágenes, sigue apareciendo req.files vacío")
 })
 
 mongoose.connect(

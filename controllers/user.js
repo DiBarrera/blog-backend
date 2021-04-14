@@ -169,6 +169,35 @@ function uploadAvatar(req, res) {
                 console.log(`Este es el userData ---> ${userData}`)
                 console.log(`Este es el user ---> ${user}`)
                 console.log(`Este es el req.files ---> ${req.files}`)
+                if(req.files) {
+                    let filePath = req.files.avatar.path
+                    console.log(filePath)
+                    let fileSplit = filePath.split("/")
+                    console.log(fileSplit)
+                    let fileName = fileSplit[2]
+                    console.log(fileName)
+                    let extSplit = fileName.split(".")
+                    console.log(extSplit)
+                    let fileExt = extSplit[1]
+                    console.log(fileExt)
+                    if(!fileExt !== "png" && fileExt !== "jpg") {
+                        res.status(400).send({message: "La extension de la imagen no es valida. Extensiones permitidas: .jpg .png"})
+                    } else {
+                        user.avatar = fileName
+                        User.findByIdAndUpdate({_id: params.id}, user, (err, userResult) => {
+                            if(err) {
+                                console.log(err)
+                                res.status(500).send({message: "Error del servidor"})
+                            } else {
+                                if(!userResult) {
+                                    res.status(404).send({message: "No se ha encontrado ningun usuario"})
+                                } else {
+                                    res.status(200).send({avatarName: fileName})
+                                }
+                            }
+                        })
+                    }
+                }
             }
         }
     })
