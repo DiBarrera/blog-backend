@@ -1,0 +1,10 @@
+Función incompleta para subir avatar a usuario, 
+Endpoint para subir la imagen al server probada, 
+rotueo y middlewareo y condicionales para subir la imagen incompletas, 
+req.files sale vacío en terminal al consolearlo
+
+En el sitio: https://github.com/expressjs/connect-multiparty/issues/29
+
+req.files is empty on Node.js v14 ortexx/express-form-data#4
+
+TO DO: Usar otro metodo para subir imagenes
