@@ -1,7 +1,10 @@
 const bcrypt = require("bcrypt-nodejs");
+const user = require("../models/user");
 // const bcrypt = require("bcrypt");   // <--- ESTE SE COMENTA PORQUE SU SYNTAX NO LA HE APRENDIDO A USAR
 const User = require("../models/user");
 const jwt = require("../services/jwt");
+const fs = require("fs");
+const path = require("path");
 
 function signUp(req, res) {
 
@@ -144,9 +147,37 @@ function getUsersActive(req, res) {
     })
 }
 
+function uploadAvatar(req, res) {
+
+    const params = req.params
+
+    console.log(params)
+
+    console.log("Probando endpoint de Upload Avatar")
+
+    user.findById({_id: params.id}, (err, userData) => {
+        if(err) {
+            console.log(err)
+            res.status(500).send({message: "Error del servidor"})
+        } else {
+            console.log("Continuar 1")
+            if(!userData) {
+                res.status(400).send({message: "No se ha encontrado ningun usuario"})
+            } else {
+                console.log("Continuar 2")
+                let user = userData
+                console.log(`Este es el userData ---> ${userData}`)
+                console.log(`Este es el user ---> ${user}`)
+                console.log(`Este es el req.files ---> ${req.files}`)
+            }
+        }
+    })
+}
+
 module.exports = {
     signUp,
     signIn,
     getUsers,
-    getUsersActive
+    getUsersActive,
+    uploadAvatar
 }
