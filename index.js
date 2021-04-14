@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Agregada la propiedad Avatar al modelo de datos de Usuarios")
+    res.send("Función incompleta para subir avatar a usuario, Endpoint para subir la imagen al server probada, rotueo y middlewareo y condicionales para subir la imagen incompletas")
 })
 
 mongoose.connect(
