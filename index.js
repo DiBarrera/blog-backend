@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("El usuario, al actualizar la contraseña, esta se actualiza encriptada en la base de datos, pero el value de password y repeatPassword se mantiene pintado al hacer click en editar a otro usuario")
+    res.send("Creado endpoint para Activar y Desactivar Usuarios exitosamente por medio de Postman, falta crear funcionalidad en interfaz")
 })
 
 mongoose.connect(

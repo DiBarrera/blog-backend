@@ -267,6 +267,40 @@ async function updateUser(req, res) {
     })
 }
 
+function activateUser(req, res) {
+
+    console.log("Activando Usuario")
+
+    const { id } = req.params
+    console.log(req.params)
+    console.log(id)
+
+    const { active } = req.body
+    console.log(req.body)
+    console.log(active)
+
+    User.findByIdAndUpdate(id, { active }, (err, userStored) => {
+        if(err) {
+            console.log(err)
+            res.status(500).send({message: "Error del servidor"})
+        } else {
+            if(!userStored) {
+                console.log("Usuario no encontrado")
+                res.status(404).send({message: "No se ha encontrado al usuario"})
+            } else {
+                if(active === true) {
+                    console.log("Continuar A")
+                    res.status(200).send({message: "Usuario activado correctamente"})
+                } else {
+                    console.log("Continuar B")
+                    res.status(200).send({message: "Usuario desactivado correctamente"})
+                }
+            }
+        }
+    })
+
+}
+
 module.exports = {
     signUp,
     signIn,
@@ -274,5 +308,6 @@ module.exports = {
     getUsersActive,
     uploadAvatar,
     getAvatar,
-    updateUser
+    updateUser,
+    activateUser
 }
