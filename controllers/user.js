@@ -224,7 +224,7 @@ function getAvatar(req, res) {
     })
 }
 
-function updateUser(req, res) {
+async function updateUser(req, res) {
 
     console.log("Update user . . .")
 
@@ -238,6 +238,19 @@ function updateUser(req, res) {
 
     console.log(params)
     console.log(req.params)
+
+    if(userData.password) {
+        await bcrypt.hash(userData.password, null, null, (err, hash) => {
+            if(err) {
+                console.log(err)
+                res.status(500).send({message: "Error al encriptar la contraseña"})
+            } else {
+                userData.password = hash
+                console.log("Encriptando contraseña actualizada")
+                console.log(userData.password)
+            }
+        })
+    }
 
     User.findByIdAndUpdate({_id: params.id}, userData, (err, userUpdate) => {
         if(err) {

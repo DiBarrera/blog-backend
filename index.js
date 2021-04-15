@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Al actualizar un correo con mayusculas y minúsculas, toLowerCase logra pasar la info actualizada a minúsculas, tanto en lista de usuarios como en base de datos")
+    res.send("El usuario, al actualizar la contraseña, esta se actualiza encriptada en la base de datos, pero el value de password y repeatPassword se mantiene pintado al hacer click en editar a otro usuario")
 })
 
 mongoose.connect(
