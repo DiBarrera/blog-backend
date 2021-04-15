@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Endpoint para actualizar usuario exitoso, se modifica la info desde el Backend y desde Postman")
+    res.send("Al actualizar un correo con mayusculas y minúsculas, toLowerCase logra pasar la info actualizada a minúsculas, tanto en lista de usuarios como en base de datos")
 })
 
 mongoose.connect(

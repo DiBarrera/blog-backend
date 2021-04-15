@@ -228,7 +228,8 @@ function updateUser(req, res) {
 
     console.log("Update user . . .")
 
-    const userData = req.body
+    let userData = req.body
+    userData.email = req.body.email.toLowerCase()
 
     console.log(userData)
     console.log(req.body)
