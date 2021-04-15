@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Creando endpoint para eliminar usuarios")
+    res.send("Endpoint para crear Usuarios desde el Dashboard de Admin, test exitoso en Postman, el usuario puede hacer LogIn exitoso en la App")
 })
 
 mongoose.connect(
