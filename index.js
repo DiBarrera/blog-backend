@@ -10,6 +10,10 @@ app.get("/api/v1/", (req,res) => {
     res.send("Intentando Deploy Heroku")
 })
 
+app.get("/", (req,res) => {
+    res.send("Intentando Deploy Heroku")
+})
+
 // mongoose.connect(
 //     `mongodb://${IP_SERVER}:${PORT_DB}/webpersonalblog`,
 //     { useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
