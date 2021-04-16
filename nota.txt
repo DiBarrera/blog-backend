@@ -20,3 +20,7 @@ Stop a implmentación de Cloudinary
 En la linea 172 la lógia esta construida, pero no se procede ya que req.files esta vacio
 
 La linea if(req.files) no se ejecuta hacia abajo ya que req.files esta vacio
+
+*********************************************************************************
+
+Problemas para deployar en Heroku
