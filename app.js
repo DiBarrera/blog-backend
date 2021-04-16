@@ -17,7 +17,7 @@ const authRouters = require("./routers/auth");
 app.use(   // <=== ESTO ES PARA CONECTARSE A NETLIFY
     cors({
       credentials: true,
-      origin: [process.env.FRONTENDPOINT] // <=== This will be the URL of our React app (it will be running on port 3001)
+      origin: process.env.FRONTENDPOINT // <=== This will be the URL of our React app (it will be running on port 3001)
     })
   )
 
