@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Endpoint para actualizar el orden de los Menús, probado exitosamente en Postman, aparece nuevo warning de: Warning: A string ref, List2item-3, has been found within a strict mode tree");
+    res.send("Lógica y condicionales para activateMenu, Endpoint para Activar y Desactivar Menús probado en Postman, Routeo realizado");
 })
 
 // app.get("/", (req,res) => {
