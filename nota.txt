@@ -24,3 +24,10 @@ La linea if(req.files) no se ejecuta hacia abajo ya que req.files esta vacio
 *********************************************************************************
 
 Problemas para deployar en Heroku
+
+*********************************************************************************
+
+Warning: A string ref, "List2item-3", has been found within a strict mode tree. 
+String refs are a source of potential bugs and should be avoided. 
+We recommend using useRef() or createRef() instead. 
+Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref
