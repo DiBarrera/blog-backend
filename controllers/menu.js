@@ -28,6 +28,28 @@ function addMenu(req, res) {
     })
 }
 
+function getMenus(req, res) {
+
+    console.log("Get Menus ...")
+
+    Menu.find()
+        .sort({roder: "asc"})
+        .exec((err, menusStored) => {
+            if(err) {
+                console.log(err)
+                res.status(500).send({message: "Error del servidor"})
+            } else {
+                if(!menusStored) {
+                    res.status(400).send({message: "No se ha encontrdo ningun elemento en el menu"})
+                } else {
+                    console.log("Buscando Menu")
+                    res.status(200).send({message: menusStored})
+                }
+            }
+        })
+}
+
 module.exports = {
-    addMenu
+    addMenu,
+    getMenus
 }

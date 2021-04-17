@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Endpoint para crear nuevos Menús, probado el Model de Menu con el Route y vaciado en Base de datos");
+    res.send("Endpoint para obtener todos los Menús, probado en Postman");
 })
 
 // app.get("/", (req,res) => {
