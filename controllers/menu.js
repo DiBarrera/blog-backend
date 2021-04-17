@@ -33,7 +33,7 @@ function getMenus(req, res) {
     console.log("Get Menus ...")
 
     Menu.find()
-        .sort({roder: "asc"})
+        .sort({order: "asc"})
         .exec((err, menusStored) => {
             if(err) {
                 console.log(err)
@@ -43,13 +43,37 @@ function getMenus(req, res) {
                     res.status(400).send({message: "No se ha encontrdo ningun elemento en el menu"})
                 } else {
                     console.log("Buscando Menu")
-                    res.status(200).send({message: menusStored})
+                    console.log(menusStored)
+                    res.status(200).send({ menu: menusStored })
                 }
             }
         })
 }
 
+function updateMenu(req, res) {
+
+    let menuData = req.body
+    console.log(menuData)
+    const params = req.params
+    console.log(params)
+
+    Menu.findByIdAndUpdate(params.id, menuData, (err, menuUpdate) => {
+        if(err) {
+            res.status(500).send({message: "Error del servidor"})
+        } else {
+            if(!menuUpdate) {
+                console.log("No se encontro el menú")
+                res.status(400).send({message: "No se ha encontrado ningun menú"})
+            } else {
+                console.log("Menu actualizado")
+                res.status(200).send({message: "Menu actualizado correctamente"})
+            }
+        }
+    })
+}
+
 module.exports = {
     addMenu,
-    getMenus
+    getMenus,
+    updateMenu
 }

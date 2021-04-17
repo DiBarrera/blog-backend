@@ -1,20 +1,27 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// const MenuSchema = Schema({
+//     title: {
+//         type: String
+//     },
+//     url: {
+//         type: String
+//     },
+//     order: {
+//         type: Number
+//     },
+//     active: {
+//         type: Boolean,
+//         default: false
+//     }
+// })
+
 const MenuSchema = Schema({
-    title: {
-        type: String
-    },
-    url: {
-        type: String
-    },
-    order: {
-        type: Number
-    },
-    active: {
-        type: Boolean,
-        default: false
-    }
+    title: String,
+    url: String,
+    order: Number,
+    active: Boolean
 })
 
 module.exports = mongoose.model("Menu", MenuSchema)
