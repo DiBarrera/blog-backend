@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Lógica y condicionales para activateMenu, Endpoint para Activar y Desactivar Menús probado en Postman, Routeo realizado");
+    res.send("Probado endpoint para Eliminar Menús en Postman exitosamente");
 })
 
 // app.get("/", (req,res) => {
