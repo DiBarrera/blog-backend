@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Configuración para agregar un Newsletter, creado su Model, su Controller, su Routers");
+    res.send("Creado el endpoint para guardar emails de la sección de Newsletter en la Base de datos, probado exitosamente en Postman");
 })
 
 // app.get("/", (req,res) => {
