@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Probado endpoint para Eliminar Menús en Postman exitosamente");
+    res.send("Configuración para agregar un Newsletter, creado su Model, su Controller, su Routers");
 })
 
 // app.get("/", (req,res) => {
