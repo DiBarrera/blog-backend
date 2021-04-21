@@ -101,8 +101,39 @@ function updatePost(req, res) {
     })
 }
 
+function deletePost(req, res) {
+
+    console.log("Delete post OK")
+
+    const { id } = req.params
+
+    console.log(id)
+
+    Post.findByIdAndRemove(id, (err, postDeleted) => {
+        if(err) {
+            console.log(err)
+            res.status(500).send({
+                code: 500, message: "Error del servidor"
+            })
+        } else {
+            if(!postDeleted) {
+                console.log("No hay post a borrar")
+                res.status(404).send({
+                    code: 404, message: "Post no encontrado"
+                })
+            } else {
+                console.log("Post borrado")
+                res.status(200).send({
+                    code: 200, message: "El post se ha eliminado correctamente"
+                })
+            }
+        }
+    })
+}
+
 module.exports = {
     addPost,
     getPosts,
-    updatePost
+    updatePost,
+    deletePost
 }
