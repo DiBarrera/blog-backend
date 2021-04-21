@@ -67,7 +67,42 @@ function getPosts(req, res) {
     })
 }
 
+function updatePost(req, res) {
+
+    console.log("update Post OK")
+
+    const postData = req.body
+
+    console.log(postData)
+
+    const { id } = req.params
+
+    console.log(id)
+
+    Post.findByIdAndUpdate(id, postData, (err, postUpdate) => {
+        if(err) {
+            console.log(err)
+            res.status(500).send({
+                code: 500, message: "Error del servidor"
+            })
+        } else {
+            if(!postUpdate) {
+                console.log("No hay postUpdate")
+                res.status(400).send({
+                    code: 404, message: "No se ha encontrado ningun post"
+                })
+            } else {
+                console.log("Post actualizado")
+                res.status(200).send({
+                    code: 200, message: "Post actualizado correctamente"
+                })
+            }
+        }
+    })
+}
+
 module.exports = {
     addPost,
-    getPosts
+    getPosts,
+    updatePost
 }

@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Creado el enpoint para obtener los Posts creados de la base de datos");
+    res.send("Creado el endpoint para actualizar los Posts creados y vaciados en la base de datos, probado exitosamente en Postman");
 })
 
 // app.get("/", (req,res) => {
