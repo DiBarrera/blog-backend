@@ -23,8 +23,8 @@ const UserSchema = Schema({
       required: true,
       trim: true,
     },
-    role: String,   // <--- ESTO ES DE UDEMY
-    active: Boolean,   // <--- ESTO ES DE UDEMY
+    role: String,
+    active: Boolean,
     registro: {
       type: Date,
       default: Date.now()

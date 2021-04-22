@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 app.get("/api/v1/", (req,res) => {
-    res.send("Creado endpoint para obtener un Post en especifico");
+    res.send("Limpieza de código comentado, console.logs y textos adicionales");
 })
 
 // app.get("/", (req,res) => {
