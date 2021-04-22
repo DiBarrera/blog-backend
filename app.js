@@ -12,17 +12,17 @@ const menuRoutes = require("./routers/menu");
 const newsletterRoutes = require("./routers/newsletter");
 const postRoutes = require("./routers/post");
 
-app.use(cors({
-          credentials: true,
-          origin: ["http://localhost:3000"] // <== this will be the URL of our React app (it will be running on port 3000)
-}))
+// app.use(cors({
+//           credentials: true,
+//           origin: ["http://localhost:3000"] // <== this will be the URL of our React app (it will be running on port 3000)
+// }))
 
-// app.use(   // <=== ESTO ES PARA CONECTARSE A NETLIFY
-//     cors({
-//       credentials: true,
-//       origin: process.env.FRONTENDPOINT // <=== This will be the URL of our React app (it will be running on port 3001)
-//     })
-// )
+app.use(   // <=== ESTO ES PARA CONECTARSE A NETLIFY
+    cors({
+      credentials: true,
+      origin: process.env.FRONTENDPOINT // <=== This will be the URL of our React app (it will be running on port 3001)
+    })
+)
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
